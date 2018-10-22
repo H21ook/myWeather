@@ -1,3 +1,50 @@
 page-home {
-
+    .layer1 {
+        background: #E35547;
+        width: 100%;
+        padding: 20px 0;
+    }
+    .countryName{
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #FFFFFF;
+        margin: 0;
+    }
+    .layer2 {
+        display: inline-flex;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        background: #EC8B6A;
+    }
+    .infoImg {
+        width: 100px;
+        height: 100px;
+        margin-left: 10px;
+    }
+    .info {
+        width: 50%;
+        text-align: center;
+        padding-top:3px;
+        margin-left: 10px;
+    }
+    .today{
+        color:white;
+        padding: 10px 0 0 0;
+        margin: 0;
+    }
+    .infoC{
+        font-size: 35px;
+        margin: 0;
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    .oneday{
+        height: 50px;
+        width: 100%;
+        background: #314162;
+        border-bottom: 1px solid white;
+        color: white;
+    }
 }
