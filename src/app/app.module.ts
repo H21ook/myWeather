@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WeatherProvider } from '../providers/weather/weather';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { WeatherProvider } from '../providers/weather/weather';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WeatherProvider
+    WeatherProvider,
+    Network
   ]
 })
 export class AppModule {}

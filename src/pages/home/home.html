@@ -6,20 +6,171 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <div *ngIf="weather">
-    <div class="layer1">
-      <h3 class="countryName">{{weather.location.name}}, {{weather.location.country}}</h3>
-    </div>
-    <div class="layer2">
-      <div class="info">
-        <p class="today">Өнөөдөр</p>
-        <p class="infoC">{{weather.current.feelslike_c}}°</p>
-      </div>
-      <img class="infoImg" src="{{weather.current.condition.icon}}" alt="{{weather.current.condition.text}}">
-    </div>
-    <ion-list >
-      <div class="oneday" *ngFor="let forecastday of forecastdays;"><span>{{forecastday.date}}</span></div>
-    </ion-list>
-  </div>
+<ion-content center text-center style="background-color: #ecf0f1;">
+    <ion-slides *ngIf="weather && forecastPreData" class="gridInfo" #mySlider >
+        <ion-slide class="gridSlide" *ngFor="let forecastday of forecastPreData;" >
+
+            <ion-row class="locationInfo">
+              <ion-col style="padding:0;">
+                  <p style="font-size: 18px; text-align: right; margin: 0 10px 10px 0;">{{forecastday.dateFull}}</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="locationInfo">
+              <ion-col style="padding:0;">
+                <div class="colInRow">
+                  <p class="locationInfoText" style="font-weight: bold;">{{weather.name+', '+weather.sys.country}}</p>
+                </div>
+              </ion-col>
+            </ion-row>
+      
+            <ion-row class="weatherInfo">
+              <ion-col style="padding:0;">
+                <div class="colInRow">
+                  <img src="{{'http://openweathermap.org/img/w/'+ forecastday.weather[0].icon +'.png'}}" class="iconCon">
+                  <p class="weatherInfoText">{{forecastday.weather[0].main}}</p>
+                </div>
+              </ion-col>
+            </ion-row>
+      
+            <ion-row class="mainInfo">
+              <ion-col style="padding: 0;">
+                <p class="mainInfoText">{{forecastday.temp}}°</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="supInfo">
+                <ion-col>
+                  <div class="colInRow">
+                      <img src="../../assets/imglib/wind1.svg" class="iconSup">
+                    <p class="supInfoText">{{forecastday.windSpeed}} m/s</p>
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="colInRow">
+                      <img src="../../assets/imglib/drops.svg" class="iconSup">
+                    <p class="supInfoText">{{forecastday.humidity}} %</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+        
+              <ion-row style="height: 5%;">
+              </ion-row>
+        
+              <ion-row class="limitInfo">
+                <ion-col>
+                  <div class="colInRow" style="width: 100%;">
+                    <div class="infoTextBox">
+                      <p class="infoCText" style="color: #1e90ff;">{{forecastday.temp_min}}°</p><br />
+                      <p class="infoIText" style="color: #1e90ff;">MIN</p>
+                    </div>
+                      <input style="width: 60%;" type="range" disabled="true" type="range" min="{{forecastday.temp_min}}" max="{{forecastday.temp_max}}" value="{{forecastday.temp}}" step="1"/>
+                    <div class="infoTextBox">
+                      <p class="infoCText" style="color: #ff4757;">{{forecastday.temp_max}}°</p><br />
+                      <p class="infoIText" style="color: #ff4757;">MAX</p>
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+
+            <!-- <ion-grid *ngIf="weather && activeFeatureDay">
+                <ion-row style="height: 10%;">
+                </ion-row> -->
+          
+                <!-- <ion-row class="sunInfo">
+                  <ion-col style="padding:0;">
+                    <ion-row class="sunInfoTitleBox">
+                      <p class="sunInfoTitle">Sunrise</p>
+                    </ion-row>
+                    <div class="sunInfoBox">
+                      <img src="../../assets/imglib/sunrise.svg" class="iconSup">
+                      <p class="sunInfoText">{{activeDayWeather.sunriseTime}} min</p>
+                    </div>
+                  </ion-col>
+                  <ion-col style="padding:0;">
+                    <ion-row class="sunInfoTitleBox">
+                      <p class="sunInfoTitle">Sunset</p>
+                    </ion-row>
+                    <div class="sunInfoBox">
+                      <img src="../../assets/imglib/sunset.svg" class="iconSup">
+                      <p class="sunInfoText">{{activeDayWeather.sunsetTime}} min</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                 -->
+
+                <!-- <ion-row class="locationInfo">
+                  <ion-col style="padding:0;">
+                    <div class="colInRow">
+                      <p class="locationInfoText" style="font-weight: bold;">{{weather.name}}</p>
+                      <p class="locationInfoText">, {{weather.sys.country}}</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row class="weatherInfo">
+                  <ion-col style="padding:0;">
+                    <div class="colInRow">
+                      <img src="{{'http://openweathermap.org/img/w/'+ activeFeatureDay.weather[0].icon +'.png'}}" class="iconCon">
+                      <p class="weatherInfoText">{{activeFeatureDay.weather[0].main}}</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row class="mainInfo">
+                  <ion-col style="padding: 0;">
+                    <p class="mainInfoText">{{activeFeatureDay.temp}}°</p>
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row class="supInfo">
+                  <ion-col>
+                    <div class="colInRow">
+                        <img src="../../assets/imglib/wind1.svg" class="iconSup">
+                      <p class="supInfoText">{{activeFeatureDay.windSpeed}} m/s</p>
+                    </div>
+                  </ion-col>
+                  <ion-col>
+                    <div class="colInRow">
+                        <img src="../../assets/imglib/drops.svg" class="iconSup">
+                      <p class="supInfoText">{{activeFeatureDay.humidity}} %</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="height: 5%;">
+                </ion-row>
+          
+                <ion-row class="limitInfo">
+                  <ion-col>
+                    <div class="colInRow" style="width: 100%;">
+                      <div class="infoTextBox">
+                        <p class="infoCText" style="color: #1e90ff;">{{activeFeatureDay.temp_min}}°</p><br />
+                        <p class="infoIText" style="color: #1e90ff;">MIN</p>
+                      </div>
+                        <input style="width: 60%;" type="range" disabled="true" type="range" min="{{activeFeatureDay.temp_min}}" max="{{activeFeatureDay.temp_max}}" value="{{activeFeatureDay.temp}}" step="1"/>
+                      <div class="infoTextBox">
+                        <p class="infoCText" style="color: #ff4757;">{{activeFeatureDay.temp_max}}°</p><br />
+                        <p class="infoIText" style="color: #ff4757;">MAX</p>
+                      </div>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                
+              </ion-grid> -->
+
+        </ion-slide>
+    </ion-slides>
+    
+    <ion-grid *ngIf="weather && forecastPreData" class="gridFore">
+      <ion-row class="dayList">
+      <!-- <ion-col class="dayItem" *ngFor="let forecastday of forecastdays; index as i" (click)="changeDay(i)"> -->
+      <ion-col class="dayItem" id="{{'day'+i}}" *ngFor="let forecastday of forecastPreData; index as i" [ngStyle]="{'border-radius': (i == 0) ? '5px 0 0 5px' : (i == forecastPreData.length - 1) ? '0 5px 5px 0': ' '}" (click)="changeDay(i)">
+        <span class="dayWeek">{{forecastday.date}}</span><br />
+        <img class="dayIcon" src="{{'http://openweathermap.org/img/w/'+ forecastday.weather[0].icon +'.png'}}" alt="{{forecastday.weather.main}}"><br />
+        <span class="dayWeekTemp">{{(i == 0) ? weather.main.temp : forecastday.temp}}°</span><br />
+      </ion-col>
+    </ion-row>
+
+    </ion-grid>
 </ion-content>

@@ -1,5 +1,42 @@
 // http://ionicframework.com/docs/theming/
-
+@font-face {
+    font-family: MonSkazka;
+    src: url(../assets/fonts/MonSkazka.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonGeorgia;
+    src: url(../assets/fonts/MonGeorgia.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonLazurski;
+    src: url(../assets/fonts/MonLazurski.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonInfact;
+    src: url(../assets/fonts/MonImpact.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: GymnasiaCompressedMon;
+    src: url(../assets/fonts/GymnasiaCompressedMon.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: GLECB;
+    src: url(../assets/fonts/GLECB.TTF) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonFnt19;
+    src: url(../assets/fonts/MonFnt19-Bold.ttf) format("truetype");
+    font-weight: 200
+}
+body {
+    font-family: MonFnt19;
+}
 
 // App Global Sass
 // --------------------------------------------------

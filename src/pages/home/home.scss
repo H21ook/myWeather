@@ -1,50 +1,186 @@
 page-home {
-    .layer1 {
-        background: #E35547;
-        width: 100%;
-        padding: 20px 0;
+    .vertical-align-content > *
+    {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
     }
-    .countryName{
-        text-align: center;
-        font-size: 25px;
+
+    // basic
+    .gridSlide {
+        background: -webkit-radial-gradient(80% 20%, #70a1ff, #292d79); 
+        border-radius: 5px; 
+    }
+    .gridInfo {
+        background: -webkit-radial-gradient(80% 20%, #70a1ff, #292d79); 
+        height: 79%; 
+        color:#ecf0f1; 
+        padding: 0; 
+        margin:3px auto; 
+        border-radius: 5px; 
+        width: 98%;
+    }
+    .gridFore {
+        background-color: #227ad3; 
+        width: 98%; 
+        margin: 0 auto 5px auto; 
+        height: 19%; 
+        color:#ecf0f1; 
+        padding: 0; 
+        border-radius: 5px;
+    }
+    .iconSup {
+        height:30px; 
+        margin: auto 5px;
+    }
+    .iconCon {
+        height:50px;
+        margin: auto 0;
+    }
+    .colInRow {
+        display:inline-flex; 
+        height: 100%;
+    }
+    // basic
+
+    // sun info row
+    .sunInfo {
+        height: 15%;
+    }
+    .sunInfoTitleBox {
+        height: 25%;
+    }
+    .sunInfoBox {
+        display:inline-flex; 
+        height: 70%;
+    }
+    .sunInfoText {
+        margin: auto 0; 
+        font-size: 18px;
+        width: 80px;
+        text-align: left;
+    }
+    .sunInfoTitle {
+        padding:0; 
+        margin: auto;
+        font-size: 18px;
+    }
+    // sun info row
+
+    // Location info row
+    .locationInfo {
+        height: 10%;
+    }
+    .locationInfoText {
+        margin: 0  0 10px 0; 
+        font-size: 24px;
+        font-family: MonFnt19;
+    }
+    // Location info row
+
+    // weather info row
+    .weatherInfo {
+        height: 20%;
+    }
+    .weatherInfoText {
+        margin: auto 10px; 
+        font-size: 20px;
+        width: 80px;
+        text-align: left;
+    }
+    // weather info row
+
+    // Main info row
+    .mainInfo {
+        height: 25%;
+    }
+    .mainInfoText {
+        font-size:600%; 
+        margin: auto;
+        font-family: MonFnt19;
         font-weight: bold;
-        color: #FFFFFF;
-        margin: 0;
     }
-    .layer2 {
-        display: inline-flex;
-        padding: 10px;
+    // Main info row
+
+    // Sup info row
+    .supInfo {
+        height: 10%;
+    }
+    .supInfoText {
+        margin: auto 0; 
+        font-size: 20px;
+        width: 80px;
+        text-align: left;
+    }
+    // Sup info row
+
+    // Limit row
+    .limitInfo {
+        height: 15%;
+    }
+    .infoTextBox {
+        margin: auto 0; 
+        width: 20%;
+    }
+    .infoCText {
+        padding: 0; 
+        margin: 0 0 -15px 0; 
+        font-family: MonInfact;
+        font-size: 20px;
+    }
+    .infoIText {
+        padding: 0; 
+        margin: 0; 
+        font-family: MonInfact;
+        font-size: 16px;
+    }
+    
+
+    input[type=range] {
+        -webkit-appearance: none;
         width: 100%;
-        text-align: center;
-        background: #EC8B6A;
+        background: transparent; 
     }
-    .infoImg {
-        width: 100px;
-        height: 100px;
-        margin-left: 10px;
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 6px;
+        border-radius: 5px;
+        background:-webkit-radial-gradient(0% 90%, #6eb1f5, #f58d96);
+        cursor: pointer;
+        margin-top: -4px; 
     }
-    .info {
-        width: 50%;
-        text-align: center;
-        padding-top:3px;
-        margin-left: 10px;
-    }
-    .today{
-        color:white;
-        padding: 10px 0 0 0;
-        margin: 0;
-    }
-    .infoC{
-        font-size: 35px;
-        margin: 0;
-        color: white;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
-    .oneday{
-        height: 50px;
+    
+    input[type=range]::-webkit-slider-runnable-track {
         width: 100%;
-        background: #314162;
-        border-bottom: 1px solid white;
-        color: white;
+        height: 10px;
+        background: -webkit-linear-gradient(left, #1e90ff, #ff4757);
+        border-radius: 5px;
+        border: 0.2px solid -webkit-linear-gradient(left, #1e90ff, #ff4757);
     }
+    // Limit row
+
+    // Day list info
+    .dayList {
+        height: 100%;
+    }
+    .dayItem {
+        background-color: #292d79;
+    }
+    .dayItem:hover {
+        background-color: #555aaf;
+    }
+    .dayWeek {
+        font-size: 14px;
+        font-family: MonFnt19;
+    }
+    .dayIcon {
+        height: 40%;
+        padding: 0;
+    }
+    .dayWeekTemp {
+        font-size: 20px;
+        font-family: MonInfact;
+    }
+    // Day list info
 }
